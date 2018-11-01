@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.4.1)
 
+set(CMAKE_CXX14_EXTENSION_COMPILE_OPTION -std=c++14)
+set (CMAKE_CXX_STANDARD 14)
+
 # Set the path to the Oboe directory.
 set (OBOE_DIR ../../oboe)
 
@@ -22,3 +25,6 @@ target_link_libraries(
         log
         android
 )
+
+target_compile_options(native-lib
+PRIVATE -std=c++14)

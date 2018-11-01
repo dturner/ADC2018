@@ -45,7 +45,7 @@ public:
     };
 
     void setFrequency(double frequency) {
-        mFrequency = frequency;
+        mFrequency.store(frequency);
         updatePhaseIncrement();
     };
 
@@ -80,7 +80,7 @@ private:
     float mPhase = 0.0;
     std::atomic<T> mAmplitude { 0 };
     std::atomic<double> mPhaseIncrement { 0.0 };
-    double mFrequency = kDefaultFrequency;
+    std::atomic<double> mFrequency {kDefaultFrequency};
     int32_t mSampleRate = kDefaultSampleRate;
 
     void updatePhaseIncrement(){

@@ -16,17 +16,24 @@ using namespace oboe;
 class AudioEngine : AudioStreamCallback {
 
 public:
-    void start(AAssetManager *assetManager);
+
+    AudioEngine(AAssetManager *assetManager);
+
+    void start();
     void stop();
 
 
     void tap(bool isDown);
 
+    void setOscillatorFrequency(float f);
+    void setOscillatorAmplitude(float f);
+
 private:
     AudioStream *stream = nullptr;
-    Oscillator<float> mOsc;
+
+    std::shared_ptr<Oscillator<float>> mOsc {nullptr};
     Mixer<float> mMixer;
-    SoundRecording* sr;
+    std::shared_ptr<SoundRecording> sr {nullptr};
 
     DataCallbackResult
     onAudioReady(AudioStream *oboeStream, void *audioData, int32_t numFrames) override;

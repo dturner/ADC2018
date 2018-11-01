@@ -7,14 +7,24 @@
 #include "utils/logging.h"
 
 
-void AudioEngine::start(AAssetManager *assetManager) {
-
-    LOGD("START");
+AudioEngine::AudioEngine(AAssetManager *assetManager) {
+    mOsc = std::make_shared<Oscillator<float>>();
 
     // Load the AMEN break
     sr = SoundRecording::loadFromAssets(assetManager, "AMEN.raw", 1);
     sr->setPlaying(true);
     sr->setLooping(true);
+}
+
+
+void AudioEngine::start() {
+
+    LOGD("AudioEngine::start");
+
+    if (stream != nullptr){
+        LOGE("Stream already created");
+        return;
+    }
 
     // Set up the playback stream
     AudioStreamBuilder b;
@@ -29,17 +39,12 @@ void AudioEngine::start(AAssetManager *assetManager) {
         return;
     }
 
+    mOsc->setSampleRate(stream->getSampleRate());
+    mOsc->setFrequency(50.0);
+    mOsc->setAmplitude(0.2);
 
-    mOsc.setSampleRate(stream->getSampleRate());
-    mOsc.setFrequency(440.0);
-    mOsc.setAmplitude(0.2);
-
-    // Make a std::shared_ptr from our SoundRecording
-    std::shared_ptr<RenderableAudio<float>> pSoundRecording(sr);
-    std::shared_ptr<RenderableAudio<float>> pOsc(&mOsc);
-
-    mMixer.addTrack(pSoundRecording);
-    mMixer.addTrack(pOsc);
+    mMixer.addTrack(sr);
+    mMixer.addTrack(mOsc);
 
     r = stream->requestStart();
     if (r != Result::OK){
@@ -47,24 +52,38 @@ void AudioEngine::start(AAssetManager *assetManager) {
         stream->close();
         return;
     }
-
 }
 
 DataCallbackResult
 AudioEngine::onAudioReady(AudioStream *oboeStream, void *audioData, int32_t numFrames) {
 
-    //mOsc.renderAudio(static_cast<float *>(audioData), numFrames);
     mMixer.renderAudio(static_cast<float *>(audioData), numFrames);
     return DataCallbackResult::Continue;
 }
 
 void AudioEngine::stop() {
+
+    LOGD("AudioEngine::stop");
+
+    mMixer.clearTracks();
     if (stream != nullptr){
         stream->close();
+        stream = nullptr;
     }
 }
 
 void AudioEngine::tap(bool isDown) {
-
-    mOsc.setWaveOn(isDown);
+    mOsc->setWaveOn(isDown);
 }
+
+void AudioEngine::setOscillatorFrequency(float f) {
+    mOsc->setFrequency(f);
+}
+
+void AudioEngine::setOscillatorAmplitude(float f) {
+    mOsc->setAmplitude(f);
+}
+
+
+
+

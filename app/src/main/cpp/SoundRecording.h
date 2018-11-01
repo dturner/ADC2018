@@ -41,9 +41,9 @@ public:
     void setPlaying(bool isPlaying) { mIsPlaying = isPlaying; resetPlayHead(); };
     void setLooping(bool isLooping) { mIsLooping = isLooping; };
 
-    static SoundRecording * loadFromAssets(AAssetManager *assetManager,
-                                           const char * filename,
-                                           const int32_t channelCount);
+    static std::shared_ptr<SoundRecording> loadFromAssets(AAssetManager *assetManager,
+                                                          const char *filename,
+                                                          const int32_t channelCount);
 
 private:
     int32_t mChannelCount = 1; // TODO: move this into a konstant and maybe add as parameter to ctor
