@@ -44,7 +44,7 @@ void SoundRecording::renderAudio(float *targetData, int32_t numFrames){
     }
 }
 
-std::shared_ptr<SoundRecording> SoundRecording::loadFromAssets(
+SoundRecording* SoundRecording::loadFromAssets(
         AAssetManager *assetManager,
         const char *filename,
         const int32_t channelCount) {
@@ -74,5 +74,5 @@ std::shared_ptr<SoundRecording> SoundRecording::loadFromAssets(
 
     int32_t numFrames = static_cast<int32_t>(trackLength / bytesPerFrame);
     LOGD("Opened track, bytes: %ld frames: %d", trackLength, numFrames);
-    return std::make_shared<SoundRecording>(audioBuffer, numFrames, channelCount);
+    return new SoundRecording(audioBuffer, numFrames, channelCount);
 }

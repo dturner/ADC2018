@@ -41,7 +41,7 @@ public:
     void setPlaying(bool isPlaying) { mIsPlaying = isPlaying; resetPlayHead(); };
     void setLooping(bool isLooping) { mIsLooping = isLooping; };
 
-    static std::shared_ptr<SoundRecording> loadFromAssets(AAssetManager *assetManager,
+    static SoundRecording* loadFromAssets(AAssetManager *assetManager,
                                                           const char *filename,
                                                           const int32_t channelCount);
 

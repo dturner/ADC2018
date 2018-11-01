@@ -39,7 +39,7 @@ public:
         }
     }
 
-    void addTrack(std::shared_ptr<RenderableAudio<T>> renderer){
+    void addTrack(RenderableAudio<T> *renderer){
         mTracks.emplace_back(renderer);
     }
 
@@ -49,7 +49,7 @@ public:
 
 private:
     T mixingBuffer[kBufferSize];
-    std::vector<std::shared_ptr<RenderableAudio<T>>> mTracks;
+    std::vector<RenderableAudio<T>*> mTracks;
 };
 
 
