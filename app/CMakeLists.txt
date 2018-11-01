@@ -14,7 +14,6 @@ include_directories (${OBOE_DIR}/include)
 
 add_library( native-lib SHARED
         src/main/cpp/native-lib.cpp
-        src/main/cpp/AudioEngine.cpp
         src/main/cpp/Oscillator.cpp
         src/main/cpp/SoundRecording.cpp
         )
