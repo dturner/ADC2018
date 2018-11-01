@@ -40,11 +40,11 @@ Java_com_example_donturner_ads2018_MainActivity_setFrequency(
 }
 
 JNIEXPORT void JNICALL
-Java_com_example_donturner_ads2018_MainActivity_setVolume(
-        JNIEnv *env, jobject instance,
-        jdouble v) {
+Java_com_example_donturner_ads2018_MainActivity_setAmplitude(JNIEnv *env, jobject instance,
+                                                             jfloat f) {
 
+    // TODO
 
 }
 
-}// extern "C"
+}
