@@ -5,9 +5,6 @@
 #include "utils/logging.h"
 #include "AudioEngine.h"
 
-AudioEngine engine;
-
-
 extern "C" {
 
 
@@ -16,14 +13,14 @@ Java_com_example_donturner_ads2018_MainActivity_createEngine(JNIEnv *env, jobjec
                                                              jobject jAssetManager) {
 
     AAssetManager *a = AAssetManager_fromJava(env, jAssetManager);
-    engine.loadAmen(a);
+
 }
 
 JNIEXPORT void JNICALL
 Java_com_example_donturner_ads2018_MainActivity_startEngine(JNIEnv *env, jobject instance) {
 
     // TODO
-    engine.start();
+
 }
 
 JNIEXPORT void JNICALL
@@ -36,7 +33,7 @@ Java_com_example_donturner_ads2018_MainActivity_stopEngine(JNIEnv *env, jobject 
 JNIEXPORT void JNICALL
 Java_com_example_donturner_ads2018_MainActivity_tap(JNIEnv *env, jobject instance, jboolean b) {
 
-    engine.setWaveOn(b);
+    // TODO
 
 }
 
@@ -45,7 +42,7 @@ Java_com_example_donturner_ads2018_MainActivity_setFrequency(
         JNIEnv *env, jobject instance,
         jfloat v) {
 
-    engine.setF(v);
+    // TODO
 
 }
 
@@ -53,8 +50,7 @@ JNIEXPORT void JNICALL
 Java_com_example_donturner_ads2018_MainActivity_setAmplitude(JNIEnv *env, jobject instance,
                                                              jfloat f) {
 
-    engine.setA(f);
-
+    // TODO
 }
 
 }

@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener{
+public class MainActivity extends AppCompatActivity {
 
     private native void createEngine(AssetManager assets);
     private native void startEngine();
@@ -30,18 +30,23 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        createEngine(getAssets());
+
+        // TODO
+        //createEngine(getAssets());
     }
 
 
     protected void onStart(){
         super.onStart();
-        startEngine();
 
-        SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        // TODO
+
+
+
+        /*SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         Sensor rotationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         sensorManager.registerListener(this, rotationSensor,
-                SensorManager.SENSOR_DELAY_FASTEST);
+                SensorManager.SENSOR_DELAY_FASTEST);*/
 
     }
 
@@ -50,26 +55,4 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         stopEngine();
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-
-        if (event.getAction() == MotionEvent.ACTION_DOWN){
-            tap(true);
-
-        }else if (event.getAction() == MotionEvent.ACTION_UP){
-            tap(false);
-        }
-        return true;
-    }
-
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        setFrequency(150 + (event.values[0] * 100));
-        setAmplitude((float) 0.5 + (event.values[1]));
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
 }
