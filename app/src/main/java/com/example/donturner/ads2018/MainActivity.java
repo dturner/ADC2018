@@ -14,12 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private native void createEngine(AssetManager assets);
     private native void startEngine();
-    private native void stopEngine();
     private native void tap(boolean b);
-    private native void setFrequency(float f);
-    private native void setAmplitude(float f);
+    private native void setFrequency(float frequency);
+    private native void setAmplitude(float amplitude);
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -32,27 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // TODO
-        //createEngine(getAssets());
-    }
-
-
-    protected void onStart(){
-        super.onStart();
-
-        // TODO
-
-
 
         /*SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         Sensor rotationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         sensorManager.registerListener(this, rotationSensor,
-                SensorManager.SENSOR_DELAY_FASTEST);*/
-
+        SensorManager.SENSOR_DELAY_FASTEST);*/
     }
-
-    protected void onStop(){
-        super.onStop();
-        stopEngine();
-    }
-
 }

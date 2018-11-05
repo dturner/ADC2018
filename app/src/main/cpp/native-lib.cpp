@@ -7,24 +7,8 @@
 
 extern "C" {
 
-
-JNIEXPORT void JNICALL
-Java_com_example_donturner_ads2018_MainActivity_createEngine(JNIEnv *env, jobject instance,
-                                                             jobject jAssetManager) {
-
-    AAssetManager *a = AAssetManager_fromJava(env, jAssetManager);
-
-}
-
 JNIEXPORT void JNICALL
 Java_com_example_donturner_ads2018_MainActivity_startEngine(JNIEnv *env, jobject instance) {
-
-    // TODO
-
-}
-
-JNIEXPORT void JNICALL
-Java_com_example_donturner_ads2018_MainActivity_stopEngine(JNIEnv *env, jobject instance) {
 
     // TODO
 
@@ -40,7 +24,7 @@ Java_com_example_donturner_ads2018_MainActivity_tap(JNIEnv *env, jobject instanc
 JNIEXPORT void JNICALL
 Java_com_example_donturner_ads2018_MainActivity_setFrequency(
         JNIEnv *env, jobject instance,
-        jfloat v) {
+        jfloat frequency) {
 
     // TODO
 
@@ -48,7 +32,7 @@ Java_com_example_donturner_ads2018_MainActivity_setFrequency(
 
 JNIEXPORT void JNICALL
 Java_com_example_donturner_ads2018_MainActivity_setAmplitude(JNIEnv *env, jobject instance,
-                                                             jfloat f) {
+                                                             jfloat amplitude) {
 
     // TODO
 }
