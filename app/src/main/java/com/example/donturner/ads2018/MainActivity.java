@@ -1,6 +1,5 @@
 package com.example.donturner.ads2018;
 
-import android.content.res.AssetManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
