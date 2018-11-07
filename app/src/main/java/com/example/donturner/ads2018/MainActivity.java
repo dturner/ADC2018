@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     private native void startEngine();
     private native void tap(boolean b);
     private native void setFrequency(float frequency);
-    private native void setAmplitude(float amplitude);
 
     // Used to load the 'native-lib' library on application startup.
     static {
