@@ -7,23 +7,18 @@
 #include "utils/logging.h"
 #include "AudioEngine.h"
 
-
-AudioEngine engine;
-
 extern "C" {
 
 JNIEXPORT void JNICALL
 Java_com_example_donturner_adc2018_MainActivity_startEngine(JNIEnv *env, jobject instance) {
 
-    engine.start();
-
+    // TODO
 }
 
 JNIEXPORT void JNICALL
 Java_com_example_donturner_adc2018_MainActivity_tap(JNIEnv *env, jobject instance, jboolean b) {
 
-    engine.tap(b);
-
+    // TODO
 }
 
 JNIEXPORT void JNICALL
@@ -31,8 +26,7 @@ Java_com_example_donturner_adc2018_MainActivity_setFrequency(
         JNIEnv *env, jobject instance,
         jdouble frequency) {
 
-    engine.setFrequency(frequency);
-
+    // TODO
 }
 
 }extern "C"
@@ -40,6 +34,5 @@ JNIEXPORT void JNICALL
 Java_com_example_donturner_adc2018_MainActivity_setSpread(JNIEnv *env, jobject instance,
                                                           jdouble spread) {
 
-    engine.setSpread(spread);
-
+    // TODO
 }

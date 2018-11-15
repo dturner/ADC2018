@@ -23,4 +23,4 @@ target_link_libraries(
         android
 )
 
-target_compile_options(native-lib PRIVATE -Wall -Werror -Ofast)
+#target_compile_options(native-lib PRIVATE -Wall -Werror -Ofast)
