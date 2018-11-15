@@ -35,6 +35,11 @@ class Oscillator : public RenderableAudio<T> {
 
 public:
 
+    Oscillator(){
+        // Start the phase at a random point to avoid resonance when mixing multiple oscillators
+        mPhase = (double) rand() / RAND_MAX;
+    }
+
     void setWaveOn(bool isWaveOn){
         mIsWaveOn.store(isWaveOn);
     };
@@ -77,7 +82,7 @@ public:
 
 private:
     std::atomic<bool> mIsWaveOn { false };
-    float mPhase = 0.0;
+    double mPhase = 0.0;
     std::atomic<T> mAmplitude { 0 };
     std::atomic<double> mPhaseIncrement { 0.0 };
     std::atomic<double> mFrequency {kDefaultFrequency};

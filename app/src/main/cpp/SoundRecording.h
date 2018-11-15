@@ -32,9 +32,9 @@ class SoundRecording : public RenderableAudio<float>{
 
 public:
     SoundRecording(const float *sourceData, int32_t numFrames, int32_t channelCount)
-            : mData(sourceData)
+            : mChannelCount(channelCount)
+            , mData(sourceData)
             , mTotalFrames(numFrames)
-            , mChannelCount(channelCount)
     {};
     void renderAudio(float *targetData, int32_t numFrames);
     void resetPlayHead() { mReadFrameIndex = 0; };

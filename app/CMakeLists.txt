@@ -22,3 +22,5 @@ target_link_libraries(
         log
         android
 )
+
+target_compile_options(native-lib PRIVATE -Wall -Werror -Ofast)
