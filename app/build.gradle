@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.donturner.ads2018"
+        applicationId "com.example.donturner.adc2018"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1

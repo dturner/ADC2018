@@ -10,21 +10,21 @@
 extern "C" {
 
 JNIEXPORT void JNICALL
-Java_com_example_donturner_ads2018_MainActivity_startEngine(JNIEnv *env, jobject instance) {
+Java_com_example_donturner_adc2018_MainActivity_startEngine(JNIEnv *env, jobject instance) {
 
     // TODO
 
 }
 
 JNIEXPORT void JNICALL
-Java_com_example_donturner_ads2018_MainActivity_tap(JNIEnv *env, jobject instance, jboolean b) {
+Java_com_example_donturner_adc2018_MainActivity_tap(JNIEnv *env, jobject instance, jboolean b) {
 
     // TODO
 
 }
 
 JNIEXPORT void JNICALL
-Java_com_example_donturner_ads2018_MainActivity_setFrequency(
+Java_com_example_donturner_adc2018_MainActivity_setFrequency(
         JNIEnv *env, jobject instance,
         jfloat frequency) {
 

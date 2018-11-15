@@ -1,12 +1,6 @@
-package com.example.donturner.ads2018;
+package com.example.donturner.adc2018;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
