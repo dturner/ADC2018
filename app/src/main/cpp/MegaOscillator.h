@@ -26,7 +26,7 @@
 #include "Oscillator.h"
 
 
-constexpr int kNumOscs = 200;
+constexpr int kNumOscs = 150;
 
 template <typename T>
 class MegaOscillator : RenderableAudio<T> {
