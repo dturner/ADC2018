@@ -51,9 +51,8 @@ public:
     };
 
     void setFrequency(double frequency) {
-        for (auto &o : oscs){
-            o.setFrequency(frequency);
-        }
+        mBaseFrequency = frequency;
+        updateFrequencies();
     };
 
     void setAmplitude(float amplitude){
@@ -69,11 +68,31 @@ public:
         mixer.renderAudio(audioData, numFrames);
     }
 
+    /**
+     * Set the spread of oscillator frequencies above and below the base frequency
+     * @param spread in Hz
+     */
+    void setSpread(double spread) {
+        mSpread = spread;
+        updateFrequencies();
+    }
+
 private:
 
     Mixer<T> mixer;
     Oscillator<T> oscs[kNumOscs];
+    double mBaseFrequency = 440.0;
+    double mSpread = 0.01;
 
+    void updateFrequencies(){
+
+        double currentFrequency = mBaseFrequency - (mSpread / 2);
+        double frequencyIncrement = mSpread / kNumOscs;
+        for (int i = 0; i < kNumOscs; ++i) {
+            currentFrequency += (frequencyIncrement * i);
+            oscs[i].setFrequency(currentFrequency);
+        }
+    }
 };
 
 
