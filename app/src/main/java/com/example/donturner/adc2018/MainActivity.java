@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private native void startEngine();
     private native void tap(boolean b);
+
     private native void setFrequency(double frequency);
     private native void setSpread(double spread);
 
@@ -31,10 +32,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        startEngine();
+
         /*SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         Sensor rotationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         sensorManager.registerListener(this, rotationSensor,
         SensorManager.SENSOR_DELAY_FASTEST);*/
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            tap(true);
+        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+            tap(false);
+        }
+        return super.onTouchEvent(event);
     }
 
 }

@@ -7,18 +7,20 @@
 #include "utils/logging.h"
 #include "AudioEngine.h"
 
+AudioEngine engine;
+
 extern "C" {
 
 JNIEXPORT void JNICALL
 Java_com_example_donturner_adc2018_MainActivity_startEngine(JNIEnv *env, jobject instance) {
 
-    // TODO
+    engine.start();
 }
 
 JNIEXPORT void JNICALL
 Java_com_example_donturner_adc2018_MainActivity_tap(JNIEnv *env, jobject instance, jboolean b) {
 
-    // TODO
+    engine.tap(b);
 }
 
 JNIEXPORT void JNICALL
